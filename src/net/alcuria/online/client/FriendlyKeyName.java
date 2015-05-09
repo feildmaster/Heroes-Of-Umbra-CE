@@ -72,7 +72,7 @@ public class FriendlyKeyName {
         if ((key >= 29) && (key <= 54)) {
             return Character.toString((char) (key + 68));
         }
-        if (Gdx.app.getType() == Application.ApplicationType.Android) {
+        if (Gdx.app != null && Gdx.app.getType() == Application.ApplicationType.Android) {
             if (key == Ouya.BUTTON_L1) {
                 return "L1";
             }
