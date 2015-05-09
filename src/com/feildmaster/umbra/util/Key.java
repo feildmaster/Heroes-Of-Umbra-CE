@@ -1,6 +1,8 @@
 package com.feildmaster.umbra.util;
 
 import net.alcuria.online.client.Config;
+import net.alcuria.online.client.FriendlyKeyName;
+import net.alcuria.online.client.ui.Hotkeys;
 
 /**
  * Utility for Mapping game keys
@@ -347,6 +349,10 @@ public enum Key {
 
     public abstract int get();
 
+    public String getName() {
+        return FriendlyKeyName.get(this.get());
+    }
+
     public static Key get(int key) {
         if (key >= 0) {
             for (Key _key : values()) {
@@ -366,7 +372,23 @@ public enum Key {
         return Config.customControls;
     }
 
+    public static void updateHotkeyStrings() {
+        if (Hotkeys.hotkeyStrings == null) {
+            Hotkeys.hotkeyStrings = new String[Hotkeys.NUM_HOTKEYS];
+        }
+
+        final String[] strings = Hotkeys.hotkeyStrings;
+        strings[0] = SKILL_1.getName();
+        strings[1] = SKILL_2.getName();
+        strings[2] = SKILL_3.getName();
+        strings[3] = SKILL_4.getName();
+        strings[4] = SKILL_5.getName();
+        strings[5] = SKILL_6.getName();
+
+    }
+
     public static void resetAll() {
         Config.setDefaultKeys();
+        updateHotkeyStrings();
     }
 }
