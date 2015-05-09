@@ -92,6 +92,6 @@ public class FriendlyKeyName {
                 return "R3";
             }
         }
-        return "?";
+        return "???";
     }
 }
