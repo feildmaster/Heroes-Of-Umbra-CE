@@ -5,7 +5,7 @@ import net.alcuria.online.client.FriendlyKeyName;
 import net.alcuria.online.client.ui.Hotkeys;
 
 /**
- * Utility for Mapping game keys
+ * Utility for mapping game keys
  *
  * @author feildmaster
  */
