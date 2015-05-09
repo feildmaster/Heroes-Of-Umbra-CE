@@ -69,7 +69,7 @@ public class FriendlyKeyName {
             case 92:
                 return "pgup";
         }
-        if ((key >= 29) && (key < 54)) {
+        if ((key >= 29) && (key <= 54)) {
             return Character.toString((char) (key + 68));
         }
         if (Gdx.app.getType() == Application.ApplicationType.Android) {
