@@ -85,21 +85,6 @@ public enum Key {
             return Config.CUST_KEY_MENU;
         }
     },
-    UP {
-        @Override
-        boolean _set(int key) {
-            if (!isAvailable(key) && !Key.get(key).equals(INSPECT)) {
-                return false;
-            }
-            Config.CUST_KEY_UP = key;
-            return true;
-        }
-
-        @Override
-        public int get() {
-            return Config.CUST_KEY_UP;
-        }
-    },
     INSPECT {
         @Override
         boolean _set(int key) {
@@ -113,6 +98,21 @@ public enum Key {
         @Override
         public int get() {
             return Config.CUST_KEY_INSPECT;
+        }
+    },
+    UP {
+        @Override
+        boolean _set(int key) {
+            if (!isAvailable(key) && !Key.get(key).equals(INSPECT)) {
+                return false;
+            }
+            Config.CUST_KEY_UP = key;
+            return true;
+        }
+
+        @Override
+        public int get() {
+            return Config.CUST_KEY_UP;
         }
     },
     DOWN {
