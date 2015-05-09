@@ -389,6 +389,5 @@ public enum Key {
 
     public static void resetAll() {
         Config.setDefaultKeys();
-        updateHotkeyStrings();
     }
 }
