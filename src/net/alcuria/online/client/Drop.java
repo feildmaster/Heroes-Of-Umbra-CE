@@ -89,18 +89,18 @@ public class Drop extends Actor {
 
     private void moveDrop() {
         float amount = 0.02F;
-        float constant = 2.0F;
+        float constant = 3.0F; // CE - 2.0F -> 3.0F
         if ((this.bounds != null) && (this.desiredBounds != null)) {
             this.bounds.x += (this.f.player.bounds.x - this.bounds.x) * amount;
-            if (this.bounds.x < this.f.player.bounds.x - 3.0F) {
+            if (this.bounds.x < this.f.player.bounds.x - constant) { // CE - 3.0F -> constant
                 this.bounds.x += constant;
-            } else if (this.bounds.x > this.f.player.bounds.x + 3.0F) {
+            } else if (this.bounds.x > this.f.player.bounds.x + constant) { // CE - 3.0F -> constant
                 this.bounds.x -= constant;
             }
             this.bounds.y += (this.f.player.bounds.y - this.bounds.y) * amount;
-            if (this.bounds.y < this.f.player.bounds.y - 3.0F) {
+            if (this.bounds.y < this.f.player.bounds.y - constant) { // CE - 3.0F -> constant
                 this.bounds.y += constant;
-            } else if (this.bounds.y > this.f.player.bounds.y + 3.0F) {
+            } else if (this.bounds.y > this.f.player.bounds.y + constant) { // CE - 3.0F -> constant
                 this.bounds.y -= constant;
             }
         }
