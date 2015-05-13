@@ -69,7 +69,7 @@ public class FriendlyKeyName {
             case 92:
                 return "pgup";
         }
-        if ((key >= 29) && (key <= 54)) {
+        if ((key >= 29) && (key <= 54)) { // CE - key < 54 -> key <= 54
             return Character.toString((char) (key + 68));
         }
         if (Gdx.app != null && Gdx.app.getType() == Application.ApplicationType.Android) {
@@ -92,6 +92,6 @@ public class FriendlyKeyName {
                 return "R3";
             }
         }
-        return "???";
+        return "???"; // CE - ? -> ???
     }
 }
