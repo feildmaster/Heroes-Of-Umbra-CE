@@ -275,6 +275,7 @@ public class Minimap {
         if ((this.minimapRegion != null) && (!net.alcuria.online.client.GlobalFlags.flags[3])) {
             batch.draw(this.minimapRegion, this.camOffsetX + mapOffsetX, this.camOffsetY + mapOffsetY);
 
+            /* CE Start - Moved down
             if (!Config.PvpEnabled) {
                 for (int i = 0; i < f.players.size; i++) {
                     if ((((Player) f.players.get(i)).currentMap.equals(f.player.currentMap)) && (((Player) f.players.get(i)).minimapX >= -1) && (((Player) f.players.get(i)).minimapX < this.minimapWidth) && (((Player) f.players.get(i)).minimapY >= -1) && (((Player) f.players.get(i)).minimapY < this.minimapHeight)) {
@@ -282,6 +283,7 @@ public class Minimap {
                     }
                 }
             }
+            // CE end*/
 
             if ((f.map.containsEnemies) && (f.map.collisions.enemies != null)) {
                 for (int i = 0; i < f.map.collisions.enemies.length; i++) {
@@ -290,6 +292,17 @@ public class Minimap {
                     }
                 }
             }
+
+            // CE start - draw other players after enemies
+            if (!Config.PvpEnabled) {
+                for (int i = 0; i < f.players.size; i++) {
+                    final Player p = f.players.get(i); // Convert multi-array-access to single reference
+                    if ((p.currentMap.equals(f.player.currentMap)) && (p.minimapX >= -1) && (p.minimapX < this.minimapWidth) && (p.minimapY >= -1) && (p.minimapY < this.minimapHeight)) {
+                        batch.draw(this.otherPlayer, this.camOffsetX + mapOffsetX + p.minimapX, this.camOffsetY + mapOffsetY + p.minimapY);
+                    }
+                }
+            }
+            // CE end
 
             if ((f.player.minimapX >= -1) && (f.player.minimapX < this.minimapWidth) && (f.player.minimapY >= -1) && (f.player.minimapY < this.minimapHeight - 1)) {
                 batch.draw(this.player, this.camOffsetX + mapOffsetX + f.player.minimapX,
